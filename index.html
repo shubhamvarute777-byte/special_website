@@ -1,0 +1,1067 @@
+<!DOCTYPE html>
+<html lang="mr">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Madhuri — माझी ताज महाल 🌹</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Noto+Sans+Devanagari:wght@300;400;600;700&family=Dancing+Script:wght@600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet"/>
+<style>
+:root {
+  --rose-gold: #b76e79;
+  --rose-gold-light: #d4a5a5;
+  --rose-gold-shimmer: #e8c4b8;
+  --blush: #f2d4d7;
+  --blush-deep: #e8b4bc;
+  --ivory: #fdf6f0;
+  --mauve: #8b5a6a;
+  --mauve-deep: #6b3a4a;
+  --gold: #c9a96e;
+  --gold-light: #e8d5b0;
+  --text-dark: #3a2030;
+  --text-mid: #6b4a58;
+  --text-light: #9a7a88;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body {
+  background: var(--ivory);
+  font-family: 'Noto Sans Devanagari', serif;
+  color: var(--text-dark);
+  overflow-x: hidden;
+}
+
+/* PETALS */
+.petal-container {
+  position:fixed; top:0; left:0;
+  width:100%; height:100%;
+  pointer-events:none;
+  z-index:9999; overflow:hidden;
+}
+.petal {
+  position:absolute; top:-20px;
+  font-size:1.1rem; opacity:0.6;
+  animation: petalFall linear infinite;
+}
+@keyframes petalFall {
+  0%   { transform:translateY(-20px) rotate(0deg); opacity:0.7; }
+  100% { transform:translateY(110vh) rotate(360deg); opacity:0; }
+}
+
+/* NAV DOTS */
+.nav-dots {
+  position:fixed; right:14px; top:50%;
+  transform:translateY(-50%);
+  display:flex; flex-direction:column; gap:10px;
+  z-index:1000;
+}
+.nav-dot {
+  width:10px; height:10px; border-radius:50%;
+  background:var(--rose-gold-light);
+  border:2px solid var(--rose-gold);
+  cursor:pointer; transition:all 0.3s;
+}
+.nav-dot.active { background:var(--rose-gold); transform:scale(1.3); }
+
+/* SECTIONS */
+.section {
+  min-height:100vh;
+  display:flex; flex-direction:column;
+  align-items:center; justify-content:center;
+  padding:60px 20px;
+  position:relative; overflow:hidden;
+}
+
+/* REVEAL */
+.reveal {
+  opacity:0; transform:translateY(28px);
+  transition:opacity 0.65s ease, transform 0.65s ease;
+}
+.reveal.visible { opacity:1; transform:translateY(0); }
+
+/* DIVIDER */
+.divider {
+  width:70px; height:2px;
+  background:linear-gradient(90deg, transparent, var(--rose-gold), transparent);
+  margin:18px auto;
+}
+
+/* SECTION LABELS */
+.section-label {
+  font-family:'Dancing Script', cursive;
+  font-size:0.95rem; color:var(--rose-gold);
+  letter-spacing:3px; text-transform:uppercase;
+  margin-bottom:6px; text-align:center;
+}
+.section-title {
+  font-family:'Playfair Display', serif;
+  font-size:clamp(1.6rem,6vw,2.3rem);
+  color:var(--mauve-deep);
+  text-align:center; margin-bottom:28px; line-height:1.3;
+}
+
+/* ================================
+   PAGE 1 — COVER
+================================ */
+#page1 {
+  background:linear-gradient(160deg,#1a0a10 0%,#3a1525 40%,#6b2840 70%,#b76e79 100%);
+  text-align:center;
+}
+#page1::before {
+  content:''; position:absolute; inset:0;
+  background:radial-gradient(ellipse at 50% 30%, rgba(201,169,110,0.15) 0%, transparent 70%);
+}
+.cover-photo-frame {
+  width:190px; height:190px; border-radius:50%;
+  margin:0 auto 28px; position:relative;
+  animation:floatPhoto 3s ease-in-out infinite;
+}
+@keyframes floatPhoto {
+  0%,100% { transform:translateY(0); }
+  50%      { transform:translateY(-10px); }
+}
+.cover-photo-frame img {
+  width:100%; height:100%; object-fit:cover;
+  border-radius:50%; border:4px solid var(--gold);
+  box-shadow:0 0 40px rgba(201,169,110,0.4), 0 0 80px rgba(183,110,121,0.3);
+}
+.cover-photo-placeholder {
+  width:100%; height:100%; border-radius:50%;
+  background:linear-gradient(135deg, var(--mauve), var(--rose-gold));
+  border:4px solid var(--gold);
+  box-shadow:0 0 40px rgba(201,169,110,0.4);
+  display:flex; align-items:center; justify-content:center;
+  font-size:3rem;
+}
+.cover-shimmer {
+  position:absolute; inset:-4px; border-radius:50%;
+  background:conic-gradient(from 0deg, transparent, rgba(201,169,110,0.6), transparent, rgba(183,110,121,0.4), transparent);
+  animation:shimmerRotate 3s linear infinite;
+}
+@keyframes shimmerRotate { to { transform:rotate(360deg); } }
+
+.cover-title {
+  font-family:'Playfair Display', serif;
+  font-size:clamp(2.8rem,10vw,5rem); font-weight:700;
+  color:transparent;
+  background:linear-gradient(135deg,#e8c4b8,#c9a96e,#e8d5b0,#b76e79);
+  -webkit-background-clip:text; background-clip:text;
+  letter-spacing:4px; line-height:1.1;
+  animation:fadeUp 1.5s ease forwards; opacity:0;
+}
+.cover-sub {
+  font-family:'Dancing Script', cursive;
+  font-size:clamp(1rem,4vw,1.3rem);
+  color:var(--gold-light); margin-top:8px;
+  animation:fadeUp 1.5s 0.3s ease forwards; opacity:0;
+}
+.cover-marathi {
+  font-size:clamp(0.82rem,3vw,0.98rem);
+  color:rgba(232,213,176,0.75);
+  margin-top:14px; padding:0 24px;
+  animation:fadeUp 1.5s 0.6s ease forwards; opacity:0;
+  line-height:1.7;
+}
+@keyframes fadeUp {
+  from { opacity:0; transform:translateY(28px); }
+  to   { opacity:1; transform:translateY(0); }
+}
+.enter-btn {
+  margin-top:36px; padding:15px 38px;
+  background:linear-gradient(135deg, var(--rose-gold), var(--mauve));
+  color:var(--ivory); border:none; border-radius:50px;
+  font-family:'Noto Sans Devanagari', serif;
+  font-size:0.95rem; cursor:pointer; letter-spacing:1px;
+  box-shadow:0 8px 30px rgba(183,110,121,0.5);
+  transition:all 0.3s;
+  animation:fadeUp 1.5s 0.9s ease forwards; opacity:0;
+  position:relative; overflow:hidden;
+}
+.enter-btn:hover { transform:translateY(-3px); box-shadow:0 12px 40px rgba(183,110,121,0.7); }
+
+/* ================================
+   PAGE 2 — RESUME
+================================ */
+#page2 {
+  background:linear-gradient(170deg,#fdf0f3 0%,#f5e0e5 50%,#ede0f0 100%);
+}
+.resume-card {
+  background:white; border-radius:20px;
+  padding:28px 24px; max-width:580px; width:100%;
+  box-shadow:0 20px 60px rgba(183,110,121,0.15);
+  border:1px solid var(--blush); position:relative; overflow:hidden;
+}
+.resume-card::before {
+  content:''; position:absolute; top:0; left:0; right:0; height:5px;
+  background:linear-gradient(90deg, var(--rose-gold), var(--gold), var(--rose-gold));
+}
+.resume-header {
+  display:flex; align-items:center; gap:14px;
+  margin-bottom:20px; padding-bottom:18px;
+  border-bottom:1px dashed var(--blush-deep);
+}
+.resume-avatar {
+  width:64px; height:64px; border-radius:50%;
+  background:linear-gradient(135deg, var(--rose-gold), var(--mauve));
+  display:flex; align-items:center; justify-content:center;
+  font-size:1.8rem; flex-shrink:0;
+  border:3px solid var(--gold-light);
+}
+.resume-name {
+  font-family:'Playfair Display', serif;
+  font-size:1.3rem; color:var(--mauve-deep);
+}
+.resume-aka { font-size:0.78rem; color:var(--text-light); font-style:italic; margin-top:2px; }
+.resume-row { display:flex; gap:10px; margin-bottom:13px; align-items:flex-start; }
+.resume-key {
+  font-size:0.72rem; font-weight:700; color:var(--rose-gold);
+  text-transform:uppercase; letter-spacing:1px;
+  min-width:105px; padding-top:3px; flex-shrink:0;
+}
+.resume-val { font-size:0.86rem; color:var(--text-mid); line-height:1.65; flex:1; }
+.resume-val .funny { color:var(--rose-gold); font-style:italic; font-size:0.8rem; }
+.resume-badge {
+  display:inline-block; background:var(--blush);
+  color:var(--mauve); border-radius:20px;
+  padding:2px 9px; font-size:0.73rem; margin:2px;
+  border:1px solid var(--blush-deep);
+}
+.fun-btn {
+  width:100%; margin-top:18px; padding:13px;
+  background:linear-gradient(135deg, var(--blush), #f0e0f0);
+  border:2px dashed var(--rose-gold-light); border-radius:12px;
+  font-family:'Noto Sans Devanagari', serif;
+  font-size:0.86rem; color:var(--mauve); cursor:pointer; transition:all 0.3s;
+}
+.fun-btn:hover { background:var(--blush-deep); transform:scale(1.02); }
+.fun-result {
+  display:none; margin-top:10px; padding:12px 14px;
+  background:linear-gradient(135deg,#fff0f5,#fff8f0);
+  border-radius:10px; border-left:4px solid var(--rose-gold);
+  font-size:0.83rem; color:var(--mauve-deep);
+  font-style:italic; line-height:1.6;
+}
+
+/* ================================
+   PAGE 3 — GLAM
+================================ */
+#page3 {
+  background:linear-gradient(160deg,#2a0d1a 0%,#4a1a2e 40%,#7a2a45 100%);
+}
+#page3 .section-title { color:var(--rose-gold-shimmer); }
+#page3 .section-label { color:var(--gold-light); }
+.glam-grid {
+  display:grid; grid-template-columns:1fr 1fr;
+  gap:14px; max-width:480px; width:100%; margin-top:6px;
+}
+.glam-item {
+  position:relative; border-radius:14px; overflow:hidden;
+  aspect-ratio:3/4;
+  box-shadow:0 10px 40px rgba(0,0,0,0.4);
+  border:2px solid rgba(201,169,110,0.3);
+  cursor:pointer; transition:transform 0.3s;
+}
+.glam-item:hover { transform:scale(1.03); }
+.glam-item img { width:100%; height:100%; object-fit:cover; display:block; }
+.glam-placeholder {
+  width:100%; height:100%;
+  background:linear-gradient(160deg, var(--mauve-deep), var(--rose-gold));
+  display:flex; flex-direction:column;
+  align-items:center; justify-content:center; gap:8px;
+}
+.glam-placeholder-icon { font-size:2.2rem; opacity:0.8; }
+.glam-placeholder-text { font-size:0.68rem; color:rgba(255,255,255,0.7); text-align:center; padding:0 8px; }
+.glam-caption {
+  position:absolute; bottom:0; left:0; right:0;
+  background:linear-gradient(to top, rgba(0,0,0,0.82), transparent);
+  padding:28px 10px 10px;
+  font-size:0.7rem; color:rgba(255,255,255,0.9);
+  line-height:1.4; font-style:italic;
+}
+.glam-rate-btn {
+  margin-top:22px; padding:13px 30px;
+  background:transparent; border:2px solid var(--gold);
+  border-radius:50px; color:var(--gold-light);
+  font-family:'Noto Sans Devanagari', serif;
+  font-size:0.88rem; cursor:pointer; transition:all 0.3s; letter-spacing:1px;
+}
+.glam-rate-btn:hover { background:rgba(201,169,110,0.2); box-shadow:0 0 20px rgba(201,169,110,0.3); }
+.glam-result {
+  display:none; margin-top:14px;
+  font-family:'Dancing Script', cursive;
+  font-size:1.1rem; color:var(--gold-light); text-align:center;
+}
+
+/* ================================
+   PAGE 4 — STRENGTH
+================================ */
+#page4 {
+  background:linear-gradient(170deg,#fdf6f0 0%,#f8ece8 50%,#f2e0e8 100%);
+}
+.bollywood-quote {
+  font-family:'Cormorant Garamond', serif; font-style:italic;
+  font-size:clamp(0.95rem,3.8vw,1.2rem); color:var(--rose-gold);
+  text-align:center; margin-bottom:24px;
+  padding:18px 22px;
+  border-left:4px solid var(--rose-gold); border-right:4px solid var(--rose-gold);
+  background:rgba(183,110,121,0.05); border-radius:8px;
+  max-width:500px; width:100%; line-height:1.9;
+}
+.strength-block { max-width:560px; width:100%; }
+.strength-item {
+  display:flex; gap:13px; margin-bottom:16px;
+  padding:15px; background:white; border-radius:14px;
+  box-shadow:0 4px 20px rgba(183,110,121,0.08);
+  border-left:4px solid var(--rose-gold-light);
+  align-items:flex-start; transition:transform 0.2s;
+}
+.strength-item:hover { transform:translateX(4px); }
+.strength-emoji { font-size:1.4rem; flex-shrink:0; margin-top:2px; }
+.strength-text { font-size:clamp(0.8rem,3vw,0.9rem); color:var(--text-mid); line-height:1.7; }
+.strength-text .hl { color:var(--mauve-deep); font-weight:600; }
+.strength-text .funny { font-size:0.77rem; color:var(--rose-gold); font-style:italic; }
+.shayari-box {
+  margin:24px 0; padding:22px;
+  background:linear-gradient(135deg,#3a1525,#6b2840);
+  border-radius:16px; text-align:center;
+  max-width:560px; width:100%;
+  box-shadow:0 10px 40px rgba(107,40,64,0.3);
+}
+.shayari-text {
+  font-family:'Cormorant Garamond', serif; font-style:italic;
+  font-size:clamp(0.98rem,3.8vw,1.18rem);
+  color:var(--rose-gold-shimmer); line-height:2.1;
+}
+.shayari-attr { font-size:0.72rem; color:var(--gold-light); margin-top:8px; opacity:0.7; }
+.strength-end {
+  font-family:'Cormorant Garamond', serif; font-style:italic;
+  font-size:clamp(0.92rem,3.5vw,1.05rem); color:var(--mauve-deep);
+  text-align:center; max-width:500px; line-height:1.9;
+  padding:18px; border-top:1px dashed var(--rose-gold-light);
+}
+
+/* ================================
+   PAGE 5 — CONTROL PANEL
+================================ */
+#page5 {
+  background:linear-gradient(170deg,#fff5f8 0%,#fde8ec 50%,#f8e0f0 100%);
+}
+.control-panel { max-width:560px; width:100%; display:flex; flex-direction:column; gap:12px; }
+.ctrl-wrap {
+  background:white; border-radius:16px; overflow:hidden;
+  box-shadow:0 4px 20px rgba(183,110,121,0.1);
+  border:1px solid var(--blush);
+}
+.ctrl-btn {
+  width:100%; padding:15px 18px; background:white; border:none;
+  text-align:left; cursor:pointer; display:flex; align-items:center;
+  gap:12px; transition:background 0.2s;
+  font-family:'Noto Sans Devanagari', serif;
+}
+.ctrl-btn:hover { background:var(--blush); }
+.ctrl-emoji { font-size:1.3rem; flex-shrink:0; }
+.ctrl-label { font-size:clamp(0.8rem,3vw,0.88rem); color:var(--mauve-deep); font-weight:600; line-height:1.3; }
+.ctrl-sub { font-size:0.7rem; color:var(--text-light); margin-top:2px; font-weight:400; }
+.ctrl-arrow { margin-left:auto; color:var(--rose-gold-light); font-size:1.2rem; transition:transform 0.2s; }
+.ctrl-btn:hover .ctrl-arrow { transform:translateX(4px); }
+.ctrl-result {
+  display:none; padding:13px 18px;
+  background:linear-gradient(135deg,#fff0f5,#fff8f0);
+  border-top:1px dashed var(--blush-deep);
+  font-size:0.83rem; color:var(--mauve-deep); line-height:1.65;
+  font-family:'Noto Sans Devanagari', serif;
+}
+.big-num {
+  font-family:'Playfair Display', serif;
+  font-size:1.9rem; color:var(--rose-gold);
+  display:block; margin-bottom:3px;
+}
+
+/* HOTSPOT OVERLAY */
+.hotspot-overlay {
+  display:none; position:fixed; inset:0;
+  background:rgba(0,0,0,0.88); z-index:9998;
+  align-items:center; justify-content:center;
+  flex-direction:column; gap:18px;
+  text-align:center; padding:36px;
+}
+.hotspot-overlay.show { display:flex; }
+.hotspot-title {
+  font-family:'Playfair Display', serif;
+  font-size:1.8rem; color:var(--rose-gold-shimmer);
+  animation:pulse 1s ease-in-out infinite;
+}
+@keyframes pulse { 0%,100%{opacity:1;} 50%{opacity:0.4;} }
+.hotspot-body { font-size:1rem; color:rgba(255,255,255,0.85); line-height:1.9; max-width:380px; }
+.hotspot-close {
+  padding:11px 30px; background:var(--rose-gold);
+  border:none; border-radius:50px; color:white;
+  font-size:0.88rem; cursor:pointer;
+  font-family:'Noto Sans Devanagari', serif; margin-top:8px;
+}
+
+/* ================================
+   PAGE 6 — CLOSING + MOOD
+================================ */
+#page6 {
+  background:linear-gradient(160deg,#1a0510 0%,#3a1525 50%,#6b2840 100%);
+  text-align:center;
+}
+.msg-card {
+  background:rgba(255,255,255,0.06);
+  border:1px solid rgba(201,169,110,0.25);
+  border-radius:20px; padding:28px 24px;
+  max-width:560px; width:100%;
+  box-shadow:0 10px 40px rgba(0,0,0,0.3);
+  margin-bottom:32px;
+}
+.msg-card::before {
+  content:'💌'; display:block;
+  font-size:1.8rem; margin-bottom:14px;
+}
+.msg-para {
+  font-family:'Noto Sans Devanagari', serif;
+  font-size:clamp(0.88rem,3.5vw,1rem);
+  color:rgba(255,255,255,0.88); line-height:2;
+  margin-bottom:18px; text-align:right;
+}
+.msg-para:last-of-type { margin-bottom:0; }
+
+/* MOOD METER */
+.mood-section {
+  max-width:500px; width:100%; margin-bottom:32px;
+}
+.mood-title {
+  font-family:'Playfair Display', serif;
+  font-size:clamp(1.1rem,4vw,1.4rem);
+  color:var(--rose-gold-shimmer);
+  margin-bottom:6px;
+}
+.mood-sub {
+  font-size:0.8rem; color:rgba(255,255,255,0.5);
+  margin-bottom:20px; font-style:italic;
+}
+.mood-btns { display:flex; flex-direction:column; gap:12px; }
+.mood-btn {
+  padding:15px 20px; border:2px solid rgba(183,110,121,0.4);
+  border-radius:14px; background:rgba(255,255,255,0.04);
+  color:rgba(255,255,255,0.88); cursor:pointer;
+  font-family:'Noto Sans Devanagari', serif;
+  font-size:clamp(0.85rem,3.5vw,0.95rem);
+  transition:all 0.3s; text-align:left;
+  display:flex; align-items:center; gap:12px;
+}
+.mood-btn:hover { background:rgba(183,110,121,0.2); border-color:var(--rose-gold); transform:translateX(4px); }
+.mood-btn.selected { background:rgba(183,110,121,0.3); border-color:var(--gold); }
+.mood-emoji { font-size:1.4rem; flex-shrink:0; }
+.mood-text-wrap { flex:1; }
+.mood-label { font-weight:600; color:var(--rose-gold-shimmer); }
+.mood-desc { font-size:0.74rem; color:rgba(255,255,255,0.5); margin-top:2px; }
+.mood-response {
+  display:none; margin-top:16px; padding:16px 20px;
+  background:rgba(201,169,110,0.1);
+  border:1px solid rgba(201,169,110,0.3);
+  border-radius:14px;
+  font-family:'Noto Sans Devanagari', serif;
+  font-size:clamp(0.85rem,3.5vw,0.95rem);
+  color:var(--gold-light); line-height:1.8; text-align:center;
+}
+.mood-sent {
+  display:none; margin-top:10px;
+  font-size:0.75rem; color:rgba(255,255,255,0.35);
+  font-style:italic;
+}
+
+/* RESTART BTN */
+.restart-btn {
+  padding:14px 36px; background:transparent;
+  border:2px solid var(--gold); border-radius:50px;
+  color:var(--gold-light); font-family:'Noto Sans Devanagari', serif;
+  font-size:0.9rem; cursor:pointer; transition:all 0.3s; letter-spacing:1px;
+}
+.restart-btn:hover { background:rgba(201,169,110,0.15); box-shadow:0 0 20px rgba(201,169,110,0.3); }
+
+@media(max-width:400px){
+  .glam-grid { gap:10px; }
+  .section { padding:50px 14px; }
+  .resume-key { min-width:88px; }
+}
+</style>
+</head>
+<body>
+
+<!-- PETALS -->
+<div class="petal-container" id="petalContainer"></div>
+
+<!-- NAV DOTS -->
+<nav class="nav-dots" id="navDots">
+  <div class="nav-dot active"  onclick="goTo(1)" title="Cover"></div>
+  <div class="nav-dot"         onclick="goTo(2)" title="Resume"></div>
+  <div class="nav-dot"         onclick="goTo(3)" title="Glam"></div>
+  <div class="nav-dot"         onclick="goTo(4)" title="Strength"></div>
+  <div class="nav-dot"         onclick="goTo(5)" title="Fun Zone"></div>
+  <div class="nav-dot"         onclick="goTo(6)" title="Message"></div>
+</nav>
+
+<!-- HOTSPOT OVERLAY -->
+<div class="hotspot-overlay" id="hotspotOverlay">
+  <div style="font-size:2.8rem">🌐📡</div>
+  <div class="hotspot-title">⚠️ HOTSPOT ALERT ⚠️</div>
+  <div class="hotspot-body">
+    Boragewadi मधून signal आला...<br><br>
+    <em>"Saree ready ठेव, smile fix कर,<br>
+    आणि स्वतःला remind कर —<br>
+    तू त्यांच्या rules पेक्षा<br>
+    खूप मोठी आहेस." 🕯️</em><br><br>
+    <span style="font-size:0.88rem;opacity:0.7;font-style:italic;">"Kuch toh log kahenge, logo ka kaam hai kehna..."</span>
+  </div>
+  <button class="hotspot-close" onclick="document.getElementById('hotspotOverlay').classList.remove('show')">
+    Scene Cut — बंद करा 🎬
+  </button>
+</div>
+
+<!-- ================================ PAGE 1 — COVER ================================ -->
+<section class="section" id="page1">
+  <div class="cover-photo-frame">
+    <div class="cover-shimmer"></div>
+    <!-- ✏️ REPLACE: remove next line and uncomment img below -->
+    <div class="cover-photo-placeholder">🌹</div>
+    <!-- <img src="photo1.jpg" alt="Madhuri"/> -->
+  </div>
+  <h1 class="cover-title">MADHURI</h1>
+  <p class="cover-sub">Madhuu... Madhe Kale... माझी ताज महाल 🌹</p>
+  <p class="cover-marathi">
+    ही card उगाच नाही — फक्त तुझ्यासाठी बनवली आहे. 💌
+  </p>
+  <button class="enter-btn" onclick="goTo(2)">
+    तुझ्यासाठी आहे हे — ये जा आत 🌹
+  </button>
+</section>
+
+<!-- ================================ PAGE 2 — RESUME ================================ -->
+<section class="section" id="page2">
+  <p class="section-label reveal">Official Document 📋</p>
+  <h2 class="section-title reveal">
+    Madhuu's Life Resume
+    <br><small style="font-size:0.58em;color:var(--text-light);">Degree hotspot ला माहीत नाही 😄</small>
+  </h2>
+
+  <div class="resume-card reveal">
+    <div class="resume-header">
+      <div class="resume-avatar">👸</div>
+      <div>
+        <div class="resume-name">Madhuri</div>
+        <div class="resume-aka">aka Madhuu • aka <em>Madhe Kale</em> (fun days edition) 😄</div>
+        <div class="resume-aka" style="margin-top:3px;">📍 Pune | Originally: Ichalkaranji</div>
+      </div>
+    </div>
+
+    <div class="resume-row">
+      <span class="resume-key">Qualification</span>
+      <span class="resume-val">
+        MCA Graduate 🎓
+        <br><span class="funny">— "Degree आहे, पण hotspot ला interest नाही त्यात" 😄</span>
+      </span>
+    </div>
+
+    <div class="resume-row">
+      <span class="resume-key">Designation</span>
+      <span class="resume-val">
+        <span class="resume-badge">Chef 👩‍🍳</span>
+        <span class="resume-badge">Cleaner ✨</span>
+        <span class="resume-badge">आई 💕</span>
+        <span class="resume-badge">Peace Ambassador 🕊️</span>
+        <span class="resume-badge">Instagram Creator 📸</span>
+        <span class="resume-badge">Joint Family Expert 🏠</span>
+      </span>
+    </div>
+
+    <div class="resume-row">
+      <span class="resume-key">Main Branch</span>
+      <span class="resume-val">
+        Pune 🏙️
+        <br><span class="funny">Field visits: Boragewadi — "involuntary, saree mandatory" 😄</span>
+      </span>
+    </div>
+
+    <div class="resume-row">
+      <span class="resume-key">Reporting To</span>
+      <span class="resume-val"><strong>Nobody. ती स्वतःच boss आहे.</strong> 👑</span>
+    </div>
+
+    <div class="resume-row">
+      <span class="resume-key">Team</span>
+      <span class="resume-val">
+        <strong>Sanu Madam</strong> 👸 (Elder, Very Important) &
+        <strong>Hero Ruddu</strong> 🦸 (Full energy, always)
+      </span>
+    </div>
+
+    <div class="resume-row">
+      <span class="resume-key">Special Skills</span>
+      <span class="resume-val">
+        Hotspot handle करणं 🌐 • आवाज न उठवणं 🕊️ •
+        Saree नेसून smile ठेवणं 🌸 • संसार सांभाळणं ❤️ •
+        Reels बनवणं 📱 • इतकं करताना सुंदर दिसणं ✨
+      </span>
+    </div>
+
+    <div class="resume-row">
+      <span class="resume-key">Hobbies</span>
+      <span class="resume-val">
+        Photo editing • Instagram reels • Looking gorgeous while doing absolutely everything
+        <br><span class="funny">— "Multitasking queen is an understatement"</span>
+      </span>
+    </div>
+
+    <button class="fun-btn" onclick="toggleFun('resumeResult')">
+      📥 Resume Download करा
+    </button>
+    <div class="fun-result" id="resumeResult">
+      ⚠️ Server busy आहे...<br>
+      <em>"Madhuu overqualified आहे — कोणत्याही job साठी,
+      कोणत्याही description साठी, कोणत्याही scale साठी." 🌹</em>
+    </div>
+  </div>
+</section>
+
+<!-- ================================ PAGE 3 — GLAM ================================ -->
+<section class="section" id="page3">
+  <p class="section-label reveal">Exclusive Collection ✨</p>
+  <h2 class="section-title reveal" style="color:var(--rose-gold-shimmer);">
+    Ag Baii...
+    <br><small style="font-size:0.58em;color:var(--gold-light);">ही घरात राहून इतकी सुंदर कशी? 😍</small>
+  </h2>
+
+  <div class="glam-grid reveal">
+    <div class="glam-item">
+      <!-- ✏️ REPLACE: <img src="photo2.jpg" alt="Madhuri"/> -->
+      <div class="glam-placeholder">
+        <div class="glam-placeholder-icon">📸</div>
+        <div class="glam-placeholder-text">Photo 1<br>इथे add करा</div>
+      </div>
+      <div class="glam-caption">"Ag baii... घरात राहून इतकी glamorous कशी?" ✨</div>
+    </div>
+    <div class="glam-item">
+      <!-- ✏️ REPLACE: <img src="photo3.jpg" alt="Madhuri"/> -->
+      <div class="glam-placeholder">
+        <div class="glam-placeholder-icon">🌸</div>
+        <div class="glam-placeholder-text">Photo 2<br>इथे add करा</div>
+      </div>
+      <div class="glam-caption">"MCA + आई + Ghar + Glamorous — multitasking queen 👑"</div>
+    </div>
+    <div class="glam-item">
+      <!-- ✏️ REPLACE: <img src="photo4.jpg" alt="Madhuri"/> -->
+      <div class="glam-placeholder">
+        <div class="glam-placeholder-icon">💫</div>
+        <div class="glam-placeholder-text">Photo 3<br>इथे add करा</div>
+      </div>
+      <div class="glam-caption">"Sanu Madam आणि Hero Ruddu ची आई — no wonder ते cute आहेत 🥰"</div>
+    </div>
+    <div class="glam-item">
+      <!-- ✏️ REPLACE: <img src="photo5.jpg" alt="Madhuri"/> -->
+      <div class="glam-placeholder">
+        <div class="glam-placeholder-icon">🌹</div>
+        <div class="glam-placeholder-text">Photo 4<br>इथे add करा</div>
+      </div>
+      <div class="glam-caption">"Instagram म्हणाला creator. आपण म्हणतो — ताज महाल 🕌"</div>
+    </div>
+  </div>
+
+  <button class="glam-rate-btn reveal" onclick="rateGlam()">✨ Rate Madhuu's Glam करा</button>
+  <div class="glam-result" id="glamResult">
+    🚨 System Error: Scale 1-10 is too small.<br>
+    <em>"Madhuu साठी नवीन scale बनवावा लागेल." 💫</em>
+  </div>
+</section>
+
+<!-- ================================ PAGE 4 — STRENGTH ================================ -->
+<section class="section" id="page4">
+  <p class="section-label reveal">Jo Dikhta Nahi... 🕯️</p>
+  <h2 class="section-title reveal">
+    तू जे करतेस ते
+    <br><small style="font-size:0.62em;color:var(--text-light);">कोणी बघतच नाही — पण आज बघायला हवं होतं</small>
+  </h2>
+
+  <div class="bollywood-quote reveal">
+    "Tujhse naraaz nahi zindagi, hairan hoon main..."
+    <div style="font-size:0.78rem;color:var(--text-light);margin-top:6px;">— Masoom</div>
+  </div>
+
+  <div class="strength-block">
+    <div class="strength-item reveal">
+      <span class="strength-emoji">🌅</span>
+      <div class="strength-text">
+        <span class="hl">सकाळी सगळ्यात आधी उठते,</span> रात्री सगळ्यात शेवटी झोपते.
+        घराचा प्रत्येक कोपरा तिच्यामुळे चालतो —
+        पण हे कोणाच्या CV मध्ये नाही.
+      </div>
+    </div>
+
+    <div class="strength-item reveal">
+      <span class="strength-emoji">👸🦸</span>
+      <div class="strength-text">
+        <span class="hl">Sanu Madam आणि Hero Ruddu —</span>
+        दोन सुंदर जीव. त्यांच्या प्रत्येक हास्यामागे Madhuu ची मेहनत आहे.
+        आई होणं सोपं नाही — ती करते, आणि करताना smile ठेवते.
+      </div>
+    </div>
+
+    <div class="strength-item reveal">
+      <span class="strength-emoji">🏠</span>
+      <div class="strength-text">
+        Joint family, सगळ्यांच्या expectations, सगळ्यांचं मन सांभाळणं —
+        <span class="hl">कधी आवाज नाही, कधी तक्रार नाही.</span>
+        मोठ्यांसमोर शांत राहणं हे weakness नाही —
+        हे extraordinary strength आहे.
+      </div>
+    </div>
+
+    <div class="strength-item reveal">
+      <span class="strength-emoji">🌐👗</span>
+      <div class="strength-text">
+        Pune मध्ये reels करायला free — Boragewadi मध्ये saree नेसायची सक्ती.
+        <span class="hl">दोन जग, दोन rules — दोन्हींमध्ये manage करते.</span>
+        <br><span class="funny">— "Scene cut, no drama. Hotspot चा आदेश आहे." 😄</span>
+        <br><span style="font-size:0.84rem;color:var(--mauve-deep);font-style:italic;">Saree मध्ये असो वा jeans मध्ये — Madhuri, Madhuri असते. 🌹</span>
+      </div>
+    </div>
+
+    <div class="strength-item reveal">
+      <span class="strength-emoji">📱✨</span>
+      <div class="strength-text">
+        हे सगळं करताना —
+        <span class="hl">Instagram वर content edit करते, reels बनवते.</span>
+        MCA graduate ची creativity कुठे जाणार? ती express होतेच. 💫
+      </div>
+    </div>
+  </div>
+
+  <div class="shayari-box reveal">
+    <div class="shayari-text">
+      "Wo chup rehti hai,<br>
+      isliye kamzor nahi —<br>
+      Toofan bhi aawaz nahi karta<br>
+      aane se pehle..."
+    </div>
+    <div class="shayari-attr">— Urdu Shayari</div>
+  </div>
+
+  <p class="strength-end reveal">
+    Madhuu, तू जे करतेस ते कोणी बघतच नाही —<br>
+    पण आज बघायला हवं होतं. <strong>तू खूप चांगली आहेस.</strong> 🌹
+  </p>
+</section>
+
+<!-- ================================ PAGE 5 — FUN ZONE ================================ -->
+<section class="section" id="page5">
+  <p class="section-label reveal">Interactive Zone 🎛️</p>
+  <h2 class="section-title reveal">
+    Madhuu's Control Panel 😄
+    <br><small style="font-size:0.58em;color:var(--text-light);">दाबा — बघा काय होतं</small>
+  </h2>
+
+  <div class="control-panel reveal">
+
+    <!-- BTN 1 -->
+    <div class="ctrl-wrap">
+      <button class="ctrl-btn" onclick="toggleCtrl('c1')">
+        <span class="ctrl-emoji">📊</span>
+        <div>
+          <div class="ctrl-label">आज Madhuu ने किती कामं केली?</div>
+          <div class="ctrl-sub">Today's productivity report</div>
+        </div>
+        <span class="ctrl-arrow">›</span>
+      </button>
+      <div class="ctrl-result" id="c1">
+        <span class="big-num">१,२४७</span>
+        tasks completed today.
+        <br><em>"...आणि तरीही reels edit केल्या. आणि तरीही सुंदर दिसली." ✨</em>
+      </div>
+    </div>
+
+    <!-- BTN 2 — HOTSPOT -->
+    <div class="ctrl-wrap">
+      <button class="ctrl-btn" onclick="triggerHotspot()">
+        <span class="ctrl-emoji">🌐</span>
+        <div>
+          <div class="ctrl-label">Hotspot Signal Check करा</div>
+          <div class="ctrl-sub">Boragewadi network status 📡</div>
+        </div>
+        <span class="ctrl-arrow">›</span>
+      </button>
+    </div>
+
+    <!-- BTN 3 -->
+    <div class="ctrl-wrap">
+      <button class="ctrl-btn" onclick="toggleCtrl('c3')">
+        <span class="ctrl-emoji">😤</span>
+        <div>
+          <div class="ctrl-label">Madhe Kale Mode ON</div>
+          <div class="ctrl-sub">Warning: handle with care 😄</div>
+        </div>
+        <span class="ctrl-arrow">›</span>
+      </button>
+      <div class="ctrl-result" id="c3">
+        ⚠️ <em>Uh oh... कोणीतरी trouble मध्ये आहे.</em><br><br>
+        "Madhe Kale mode मध्ये Madhuu असेल तर —
+        आधी माफी माग, नंतर विचार." 😅<br><br>
+        <em style="color:var(--rose-gold);">...पण ती रागावतानाही cute असते. Ag baii! 🙈</em>
+      </div>
+    </div>
+
+    <!-- BTN 4 -->
+    <div class="ctrl-wrap">
+      <button class="ctrl-btn" onclick="toggleCtrl('c4')">
+        <span class="ctrl-emoji">👸</span>
+        <div>
+          <div class="ctrl-label">Sanu Madam चा हुकूम</div>
+          <div class="ctrl-sub">Official orders from headquarters</div>
+        </div>
+        <span class="ctrl-arrow">›</span>
+      </button>
+      <div class="ctrl-result" id="c4">
+        👸 <strong>Sanu Madam च्या orders:</strong><br><br>
+        <em>"आईला आता आराम द्या.<br>
+        ती खूप थकली आहे.<br>
+        आणि ती खूप चांगली आहे.<br>
+        — Madam, confirmed." 💕</em>
+      </div>
+    </div>
+
+    <!-- BTN 5 -->
+    <div class="ctrl-wrap">
+      <button class="ctrl-btn" onclick="toggleCtrl('c5');animateRuddu()">
+        <span class="ctrl-emoji">🦸</span>
+        <div>
+          <div class="ctrl-label">Hero Ruddu Energy Level</div>
+          <div class="ctrl-sub">Current power status ⚡</div>
+        </div>
+        <span class="ctrl-arrow">›</span>
+      </button>
+      <div class="ctrl-result" id="c5">
+        <div style="background:linear-gradient(90deg,var(--rose-gold),var(--gold));height:18px;border-radius:10px;transition:width 1.5s ease;width:0%" id="rudduBar"></div>
+        <div style="margin-top:8px;font-size:1.1rem;font-weight:bold;color:var(--mauve-deep)" id="rudduText">Loading...</div>
+        <div style="margin-top:5px;font-size:0.78rem;color:var(--text-light);font-style:italic;">
+          "Hero Ruddu ला OFF switch नाही — exactly like Madhuu." 😄
+        </div>
+      </div>
+    </div>
+
+    <!-- BTN 6 -->
+    <div class="ctrl-wrap">
+      <button class="ctrl-btn" onclick="toggleCtrl('c6')">
+        <span class="ctrl-emoji">📱</span>
+        <div>
+          <div class="ctrl-label">Madhuu ला Call करा</div>
+          <div class="ctrl-sub">Availability check</div>
+        </div>
+        <span class="ctrl-arrow">›</span>
+      </button>
+      <div class="ctrl-result" id="c6">
+        📵 <em>Sorry, Madhuu is currently:</em><br><br>
+        🍳 Cooking • 🧹 Cleaning • 👶 Sanu & Ruddu सांभाळणं
+        • 📱 Reels edit करणं • 💅 Being gorgeous •
+        🌐 Hotspot manage करणं<br><br>
+        <strong>Please try after 3 hours.</strong><br>
+        <em style="font-size:0.76rem;color:var(--text-light);">(She'll still be busy. Try anyway.) 💕</em>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ================================ PAGE 6 — MESSAGE + MOOD ================================ -->
+<section class="section" id="page6">
+
+  <!-- PERSONAL MESSAGE -->
+  <div class="msg-card reveal">
+    <p class="msg-para">
+      मला माहितीये मी वेड्यासारखं वागलो 🤪🤪. पण ह्या काही दिवसात मी change केलं स्वतःला 😎. हे सगळं मी तू माझ्यासोबत बोलावं म्हणून नाही तर माझी तुझ्याकडे एक आठवण असावी म्हणून केलंय. 🤩
+    </p>
+    <p class="msg-para">
+      तू daily खूप busy असतेस. तुला झोपायला आवडतं पण सकाळी लवकर उठावं लागतं 😴. घरची सगळी कामं करा. मुलांचा आवारा, त्यांच्यावर लक्ष ठेवा 😊. Office चं काम असेल/नसेल तर ते करा. कोणाला काय हवंय बघा. Hotspot ला अधून मधून झटके येतात ते सहन करा 😃. Joint family आहे आणि तू सगळ्यात लहान आणि साधी त्यांच्यात, त्यामुळे कोण काही बोललं, खटकलं तर तू बोलत पण नाहीस कोणाला. ते तसंच मनात ठेवून घर सांभाळून राहायला पण हिम्मत लागते म्हणून तू Strong Super Girl आहेस 💪. आणि इथून पुढे अशीच strong राहा. विचार करत बसू नको कोणी काही बोललं केलं तरी.. खुश राहा.. 😇 कारण तू खुश तर मी खुश 😜
+    </p>
+  </div>
+
+  <div class="divider" style="border-color:rgba(201,169,110,0.3);"></div>
+
+  <!-- MOOD METER -->
+  <div class="mood-section reveal">
+    <div class="mood-title">Mood थीक झालाय का Madamचा? 🌡️</div>
+    <div class="mood-sub">honest सांग — कोणाला नाही कळणार 😄</div>
+
+    <div class="mood-btns">
+
+      <button class="mood-btn" id="mood1" onclick="selectMood('mood1','अजूनही राग आहे 😤','ajunhi_raag_ahe')">
+        <span class="mood-emoji">😤</span>
+        <div class="mood-text-wrap">
+          <div class="mood-label">अजूनही राग आहे</div>
+          <div class="mood-desc">Fair enough. Raagu de thodi vel.</div>
+        </div>
+      </button>
+
+      <button class="mood-btn" id="mood2" onclick="selectMood('mood2','हसायला आलं 😄','hasayla_aal')">
+        <span class="mood-emoji">😄</span>
+        <div class="mood-text-wrap">
+          <div class="mood-label">हसायला आलं</div>
+          <div class="mood-desc">Mission accomplished. 🎯</div>
+        </div>
+      </button>
+
+      <button class="mood-btn" id="mood3" onclick="selectMood('mood3','छान वाटलं 🥹','chhan_vatal')">
+        <span class="mood-emoji">🥹</span>
+        <div class="mood-text-wrap">
+          <div class="mood-label">छान वाटलं</div>
+          <div class="mood-desc">He aikun barra vatla. 🌹</div>
+        </div>
+      </button>
+
+    </div>
+
+    <div class="mood-response" id="moodResponse"></div>
+    <div class="mood-sent" id="moodSent">✓ Response noted 🌹</div>
+  </div>
+
+  <div class="divider" style="border-color:rgba(201,169,110,0.3);"></div>
+
+  <button class="restart-btn reveal" onclick="goTo(1)">पुन्हा वाच 🌹</button>
+
+</section>
+
+<script>
+const SHEET_URL = "https://script.google.com/macros/s/AKfycbyu8uKsc6xjbWWgZv71EiiKnyQ6qJFKt9B8CmcAdruU7GvRfMLFJn-c8FxjxP9GaXRt/exec";
+
+// ── TRACK ──
+function track(event, details) {
+  try {
+    fetch(SHEET_URL, {
+      method:"POST",
+      mode:"no-cors",
+      headers:{"Content-Type":"application/json"},
+      body:JSON.stringify({ event, details })
+    });
+  } catch(e){}
+}
+
+// Track page open
+track("card_opened", "Page loaded — " + new Date().toLocaleString('mr-IN'));
+
+// ── PETALS ──
+const petals = ['🌸','🌺','🌹','🌷','✿'];
+function spawnPetal() {
+  const el = document.createElement('div');
+  el.className = 'petal';
+  el.textContent = petals[Math.floor(Math.random()*petals.length)];
+  el.style.left = Math.random()*100+'vw';
+  el.style.fontSize = (0.7+Math.random()*0.7)+'rem';
+  el.style.animationDuration = (6+Math.random()*8)+'s';
+  el.style.animationDelay = (Math.random()*3)+'s';
+  document.getElementById('petalContainer').appendChild(el);
+  setTimeout(()=>el.remove(),14000);
+}
+setInterval(spawnPetal,700);
+
+// ── GO TO PAGE ──
+function goTo(n) {
+  document.getElementById('page'+n).scrollIntoView({behavior:'smooth'});
+  track("page_visit","Page "+n);
+}
+
+// ── NAV DOTS ──
+const pages=[1,2,3,4,5,6].map(n=>document.getElementById('page'+n));
+const dots=document.querySelectorAll('.nav-dot');
+new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      const i=pages.indexOf(e.target);
+      dots.forEach((d,j)=>d.classList.toggle('active',i===j));
+    }
+  });
+},{threshold:0.5}).observe && pages.forEach(p=>
+  new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){
+        const i=pages.indexOf(e.target);
+        dots.forEach((d,j)=>d.classList.toggle('active',i===j));
+      }
+    });
+  },{threshold:0.5}).observe(p)
+);
+
+// ── SCROLL REVEAL ──
+const ro = new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{ if(e.isIntersecting) e.target.classList.add('visible'); });
+},{threshold:0.12});
+document.querySelectorAll('.reveal').forEach(el=>ro.observe(el));
+
+// ── TOGGLE FUN RESULT ──
+function toggleFun(id){
+  const el=document.getElementById(id);
+  const show=el.style.display!=='block';
+  el.style.display=show?'block':'none';
+  if(show) track("button_click","Resume Download button");
+}
+
+// ── TOGGLE CTRL ──
+function toggleCtrl(id){
+  const el=document.getElementById(id);
+  const show=el.style.display!=='block';
+  el.style.display=show?'block':'none';
+  if(show) track("button_click","Control Panel: "+id);
+}
+
+// ── RUDDU BAR ──
+function animateRuddu(){
+  setTimeout(()=>{
+    const bar=document.getElementById('rudduBar');
+    const txt=document.getElementById('rudduText');
+    if(bar){ bar.style.width='100%'; }
+    setTimeout(()=>{ if(txt) txt.textContent='१०००% ⚡ MAXIMUM POWER'; },1600);
+  },100);
+}
+
+// ── HOTSPOT ──
+function triggerHotspot(){
+  document.getElementById('hotspotOverlay').classList.add('show');
+  track("button_click","Hotspot Alert triggered");
+}
+
+// ── GLAM RATE ──
+function rateGlam(){
+  const el=document.getElementById('glamResult');
+  el.style.display='block';
+  track("button_click","Glam Rate button");
+}
+
+// ── MOOD METER ──
+const moodMessages = {
+  'mood1': "Okay okay... राग असू दे थोडा. पण card वाचलास हे खूप झालं. 😄\nRaagu de — mi wait karto. 🌹",
+  'mood2': "😄 हसायला आलं?? Mission accomplished!\n\"Madhe Kale\" mode off झाला का? 😜",
+  'mood3': "🥹 छान वाटलं हे ऐकून खूप बरं वाटलं.\nतू ठीक आहेस — हेच महत्त्वाचं आहे. 🌹"
+};
+
+function selectMood(id, label, trackLabel){
+  // deselect all
+  ['mood1','mood2','mood3'].forEach(m=>{
+    const b=document.getElementById(m);
+    if(b) b.classList.remove('selected');
+  });
+  // select clicked
+  const btn=document.getElementById(id);
+  if(btn) btn.classList.add('selected');
+
+  // show response
+  const resp=document.getElementById('moodResponse');
+  resp.style.display='block';
+  resp.textContent=moodMessages[id];
+
+  // show sent
+  const sent=document.getElementById('moodSent');
+  sent.style.display='block';
+
+  // track
+  track("mood_selected", trackLabel+" — "+label+" — "+new Date().toLocaleString('mr-IN'));
+}
+</script>
+</body>
+</html>
